@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34009.444
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "Database", "Database\Database.sqlproj", "{84E92343-21C9-47A7-83ED-D851B4A1FFEE}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Database.EfCore", "Database.EfCore\Database.EfCore.csproj", "{77B02F20-39AA-432E-A46C-C915C9FA3EB3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{84E92343-21C9-47A7-83ED-D851B4A1FFEE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{84E92343-21C9-47A7-83ED-D851B4A1FFEE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{84E92343-21C9-47A7-83ED-D851B4A1FFEE}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{84E92343-21C9-47A7-83ED-D851B4A1FFEE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{84E92343-21C9-47A7-83ED-D851B4A1FFEE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{84E92343-21C9-47A7-83ED-D851B4A1FFEE}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{77B02F20-39AA-432E-A46C-C915C9FA3EB3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{77B02F20-39AA-432E-A46C-C915C9FA3EB3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{77B02F20-39AA-432E-A46C-C915C9FA3EB3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{77B02F20-39AA-432E-A46C-C915C9FA3EB3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0BEF748F-BC16-403B-B8A7-DC809858756C}
+	EndGlobalSection
+EndGlobal
