@@ -65,18 +65,17 @@
     <Build Include="E.sql" />
   </ItemGroup>
   <PropertyGroup>
-    <PostBuildEvent>
-      dotnet tool install --global dotnet-ef
-      dotnet tool update --global dotnet-ef
-      if not exist "$(SolutionDir)$(ProjectName).EfCore" mkdir $(SolutionDir)$(ProjectName).EfCore 
-      cd $(SolutionDir)
-      if not exist "$(SolutionDir)$(ProjectName).EfCore\$(ProjectName).EfCore.csproj" dotnet new classlib -n "$(ProjectName).EfCore"
-      cd $(SolutionDir)$(ProjectName).EfCore
-      if exist Class1.cs del Class1.cs
-      dotnet add package Microsoft.EntityFrameworkCore
-      dotnet add package Microsoft.EntityFrameworkCore.Design
-      dotnet add package ErikEJ.EntityFrameworkCore.SqlServer.Dacpac
-      dotnet ef dbcontext scaffold "$(SolutionDir)\Database\bin\Database.dacpac" ErikEJ.EntityFrameworkCore.SqlServer.Dacpac --verbose --project "$(SolutionDir)\Database.EfCore\Database.EfCore.csproj" --output-dir "Models" --force
-    </PostBuildEvent>
+    <PostBuildEvent>dotnet tool install --global dotnet-ef
+dotnet tool update --global dotnet-ef
+if not exist "$(SolutionDir)$(ProjectName).EfCore" mkdir $(SolutionDir)$(ProjectName).EfCore
+cd $(SolutionDir)
+if not exist "$(SolutionDir)$(ProjectName).EfCore\$(ProjectName).EfCore.csproj" dotnet new classlib -n "$(ProjectName).EfCore"
+cd $(SolutionDir)$(ProjectName).EfCore
+if exist Class1.cs del Class1.cs
+dotnet add package Microsoft.EntityFrameworkCore
+dotnet add package Microsoft.EntityFrameworkCore.Design
+dotnet add package ErikEJ.EntityFrameworkCore.SqlServer.Dacpac
+dotnet ef dbcontext scaffold "$(ProjectDir)$(OutputPath)$(TargetName).dacpac" ErikEJ.EntityFrameworkCore.SqlServer.Dacpac --verbose --project "$(SolutionDir)$(ProjectName).EfCore\$(ProjectName).EfCore.csproj" --output-dir "Models" --force
+</PostBuildEvent>
   </PropertyGroup>
 </Project>
