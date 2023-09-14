@@ -64,13 +64,13 @@
     <Build Include="D.sql" />
     <Build Include="E.sql" />
   </ItemGroup>
-  <Target Name="CreateProjectDir" AfterTargets="Build">
+  <Target Name="CreateProjectDir" AfterTargets="Build" BeforeTargets="PostBuildEvent">
     <Exec Command="if not exist &quot;$(SolutionDir)$(ProjectName).EfCore&quot; mkdir $(SolutionDir)$(ProjectName).EfCore" />
   </Target>
-  <Target Name="CreateProject" AfterTargets="CreateProjectDir">
+  <Target Name="CreateProject" AfterTargets="CreateProjectDir" BeforeTargets="PostBuildEvent">
     <Exec Command="if not exist &quot;$(SolutionDir)$(ProjectName).EfCore\$(ProjectName).EfCore.csproj&quot; dotnet new classlib -n &quot;$(ProjectName).EfCore&quot; -o &quot;$(SolutionDir)$(ProjectName).EfCore&quot;" />
   </Target>
-  <Target Name="SetUpProject" AfterTargets="CreateProject">
+  <Target Name="SetUpProject" AfterTargets="CreateProject" BeforeTargets="PostBuildEvent">
     <Exec Command="cd $(SolutionDir)$(ProjectName).EfCore" />
     <Exec Command="if exist &quot;$(SolutionDir)$(ProjectName).EfCore\Class1.cs&quot; del &quot;$(SolutionDir)$(ProjectName).EfCore\Class1.cs&quot;" />
     <Exec Command="dotnet add &quot;$(SolutionDir)$(ProjectName).EfCore\$(ProjectName).EfCore.csproj&quot; package Microsoft.EntityFrameworkCore" />
@@ -78,7 +78,7 @@
     <Exec Command="dotnet add &quot;$(SolutionDir)$(ProjectName).EfCore\$(ProjectName).EfCore.csproj&quot; package ErikEJ.EntityFrameworkCore.SqlServer.Dacpac" />
     <Exec Command="dotnet sln &quot;$(SolutionDir)$(SolutionFileName)&quot; add --solution-folder &quot;$(SolutionFolder)&quot; &quot;$(SolutionDir)$(ProjectName).EfCore\$(ProjectName).EfCore.csproj&quot;" />
   </Target>
-  <Target Name="RestoreTool" AfterTargets="SetUpProject">
+  <Target Name="RestoreTool" AfterTargets="SetUpProject" BeforeTargets="PostBuildEvent">
     <Exec Command="dotnet tool restore" />
   </Target>
   <PropertyGroup>
